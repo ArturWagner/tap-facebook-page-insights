@@ -1,0 +1,141 @@
+{
+    "streams": [
+        {
+            "stream_alias": "facebook_page_insights",
+            "stream": "page_insights",
+            "tap_stream_id": "page_insights",
+            "schema": {
+                "selected": true,
+                "type": [
+                    "null",
+                    "object"
+                ],
+                "properties": {
+                    "page_impressions": {
+						"type": [
+							"string"
+						]
+					},
+					"page_impressions_unique": {
+						"type": [
+							"string"
+						]
+					},
+					"page_impressions_paid": {
+						"type": [
+							"string"
+						]
+					},
+					"page_impressions_organic": {
+						"type": [
+							"string"
+						]
+					},
+					"page_impressions_organic_unique": {
+						"type": [
+							"string"
+						]
+					},
+					"page_impressions_viral": {
+						"type": [
+							"string"
+						]
+					},
+					"page_impressions_viral_unique": {
+						"type": [
+							"string"
+						]
+					},
+					"page_post_engagements": {
+						"type": [
+							"string"
+						]
+					},
+					"page_engaged_users": {
+						"type": [
+							"string"
+						]
+					},
+					"page_consumptions": {
+						"type": [
+							"string"
+						]
+					},
+					"page_consumptions_unique": {
+						"type": [
+							"string"
+						]
+					},
+					"page_negative_feedback": {
+						"type": [
+							"string"
+						]
+					},
+					"page_negative_feedback_unique": {
+						"type": [
+							"string"
+						]
+					},
+					"page_actions_post_reactions_like_total": {
+						"type": [
+							"string"
+						]
+					},
+					"page_actions_post_reactions_love_total": {
+						"type": [
+							"string"
+						]
+					},
+					"page_actions_post_reactions_wow_total": {
+						"type": [
+							"string"
+						]
+					},
+					"page_actions_post_reactions_haha_total": {
+						"type": [
+							"string"
+						]
+					},
+					"page_actions_post_reactions_sorry_total": {
+						"type": [
+							"string"
+						]
+					},
+					"page_actions_post_reactions_anger_total": {
+						"type": [
+							"string"
+						]
+					},
+					"page_fans": {
+						"type": [
+							"string"
+						]
+					},
+					"page_fans_adds": {
+						"type": [
+							"string"
+						]
+					},
+					"page_fans_removes": {
+						"type": [
+							"string"
+						]
+					},
+					"page_fans_country": {
+						"type": [
+							"string"
+						]
+					}
+				}
+			},
+			"metadata": [
+                {
+                    "metadata": {
+                        "selected": true
+                    },
+                    "breadcrumb": []
+                }
+            ]	     
+        }
+    ]
+}
