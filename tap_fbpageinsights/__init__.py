@@ -4,9 +4,9 @@ import json
 import singer
 from singer import utils, metadata, Transformer
 from datetime import datetime
-import fb_insights
+from tap_fbpageinsights import fb_insights
 
-REQUIRED_CONFIG_KEYS = ["access_key", "page_id", "start_date", "end_date"]
+REQUIRED_CONFIG_KEYS = ["access_token", "page_id", "start_date", "end_date"]
 LOGGER = singer.get_logger()
 
 
@@ -73,7 +73,7 @@ def get_metrics_from_schema(stream):
             "dimension") is not True and prop != "date"
     
     metrics = [prop for prop in schema_dict['properties'] if is_metric(prop)]
-    
+    LOGGER.info('Getting Metrics')
     LOGGER.info(metrics)
     return metrics
 
@@ -91,23 +91,31 @@ def sync(config, state, catalog):
             metrics = get_metrics_from_schema(stream)
             string_metrics = ','.join(metrics)
             lines = fb_insights.get_page_insights(config, string_metrics)
-            
             singer_lines = {}
-            for line in lines['data']:
-                metric_line = build_singer_line(line, metrics)
+            try:
+                for line in lines['data']:
+                    metric_line = build_singer_line(line, metrics)
 
-                with Transformer(
-                    singer.UNIX_MILLISECONDS_INTEGER_DATETIME_PARSING
-                ) as bumble_bee:
+                    with Transformer(
+                        singer.UNIX_MILLISECONDS_INTEGER_DATETIME_PARSING
+                    ) as bumble_bee:
                     
-                    singer_line = bumble_bee.transform(
-                        metric_line, stream_schema.to_dict()
-                    )
+                        singer_line = bumble_bee.transform(
+                            metric_line, stream_schema.to_dict()
+                        )
                 
-                singer_lines.update(singer_line)
-
-            singer_lines['date_extraction'] = datetime.now().date().isoformat()
-            singer.write_record(stream_id, singer_lines, stream_alias)
+                    singer_lines.update(singer_line)
+                
+                today = datetime.now().date().isoformat()
+                singer_lines['date_extraction'] = today
+                singer.write_record(stream_id, singer_lines, stream_alias)
+            
+            except KeyError:
+                if 'error' in lines:
+                    LOGGER.info(lines['error'])
+                else:
+                    LOGGER.info(lines)
+                
     return
 
 

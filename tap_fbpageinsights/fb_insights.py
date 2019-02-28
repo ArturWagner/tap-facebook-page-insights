@@ -8,7 +8,7 @@ def get_page_insights(config, metrics):
         'until': config['end_date'],
         'metric': metrics,
         'period': 'day',
-        'access_token': config['access_key']
+        'access_token': config['access_token']
     }
     insights = requests.get(
         'https://graph.facebook.com/v3.2/{page_id}/insights?'.format(

@@ -1,141 +1,246 @@
 {
-    "streams": [
-        {
-            "stream_alias": "facebook_page_insights",
-            "stream": "page_insights",
-            "tap_stream_id": "page_insights",
-            "schema": {
-                "selected": true,
-                "type": [
-                    "null",
-                    "object"
-                ],
-                "properties": {
-                    "page_impressions": {
-						"type": [
-							"string"
-						]
-					},
-					"page_impressions_unique": {
-						"type": [
-							"string"
-						]
-					},
-					"page_impressions_paid": {
-						"type": [
-							"string"
-						]
-					},
-					"page_impressions_organic": {
-						"type": [
-							"string"
-						]
-					},
-					"page_impressions_organic_unique": {
-						"type": [
-							"string"
-						]
-					},
-					"page_impressions_viral": {
-						"type": [
-							"string"
-						]
-					},
-					"page_impressions_viral_unique": {
-						"type": [
-							"string"
-						]
-					},
-					"page_post_engagements": {
-						"type": [
-							"string"
-						]
-					},
-					"page_engaged_users": {
-						"type": [
-							"string"
-						]
-					},
-					"page_consumptions": {
-						"type": [
-							"string"
-						]
-					},
-					"page_consumptions_unique": {
-						"type": [
-							"string"
-						]
-					},
-					"page_negative_feedback": {
-						"type": [
-							"string"
-						]
-					},
-					"page_negative_feedback_unique": {
-						"type": [
-							"string"
-						]
-					},
-					"page_actions_post_reactions_like_total": {
-						"type": [
-							"string"
-						]
-					},
-					"page_actions_post_reactions_love_total": {
-						"type": [
-							"string"
-						]
-					},
-					"page_actions_post_reactions_wow_total": {
-						"type": [
-							"string"
-						]
-					},
-					"page_actions_post_reactions_haha_total": {
-						"type": [
-							"string"
-						]
-					},
-					"page_actions_post_reactions_sorry_total": {
-						"type": [
-							"string"
-						]
-					},
-					"page_actions_post_reactions_anger_total": {
-						"type": [
-							"string"
-						]
-					},
-					"page_fans": {
-						"type": [
-							"string"
-						]
-					},
-					"page_fans_adds": {
-						"type": [
-							"string"
-						]
-					},
-					"page_fans_removes": {
-						"type": [
-							"string"
-						]
-					},
+  "streams": [
+    {
+      "stream_alias": "facebook_page_insights",
+      "stream": "page_insights",
+      "tap_stream_id": "page_insights",
+      "schema": {
+        "selected": true,
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "page_impressions": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_impressions_unique": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_impressions_paid": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_impressions_organic": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_impressions_organic_unique": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_impressions_viral": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_impressions_viral_unique": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_post_engagements": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_engaged_users": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_consumptions": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_consumptions_unique": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_negative_feedback": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_negative_feedback_unique": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_actions_post_reactions_like_total": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_actions_post_reactions_love_total": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_actions_post_reactions_wow_total": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_actions_post_reactions_haha_total": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_actions_post_reactions_sorry_total": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_actions_post_reactions_anger_total": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_fans": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_fan_adds": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_fan_removes": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_views": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_views_paid": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_views_organic": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_views_unique": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_views_autoplayed": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_views_click_to_play": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_complete_views_30s": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_complete_views_30s_paid": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_complete_views_30s_organic": {
+            "type": [
+              "string"
+            ]
+          },
+          "page_video_views_10s": {
+            "type": [
+              "string"
+            ]
+          },
 					"page_fans_country": {
 						"type": [
 							"string"
 						]
+          },
+          "page_impressions_by_country_unique": {
+						"type": [
+							"string"
+						]
+          },
+          "page_content_activity_by_country_unique": {
+						"type": [
+							"string"
+						]
+          },
+          "page_fans_locale": {
+						"type": [
+							"string"
+						]
+          },
+          "page_impressions_by_locale_unique": {
+						"type": [
+							"string"
+						]
+          },
+          "page_content_activity_by_locale_unique": {
+						"type": [
+							"string"
+						]
+          },
+          "page_fans_city": {
+						"type": [
+							"string"
+						]
+          },
+          "page_impressions_by_city_unique": {
+						"type": [
+							"string"
+						]
+          },
+          "page_content_activity_by_city_unique": {
+						"type": [
+							"string"
+						]
+          },
+          "page_fans_gender_age": {
+						"type": [
+							"string"
+						]
+          },
+          "page_impressions_by_age_gender_unique": {
+						"type": [
+							"string"
+						]
+          },
+          "page_content_activity_by_age_gender_unique": {
+						"type": [
+							"string"
+						]
 					}
-				}
-			},
-			"metadata": [
-                {
-                    "metadata": {
-                        "selected": true
-                    },
-                    "breadcrumb": []
-                }
-            ]	     
         }
-    ]
+      },
+      "metadata": [
+        {
+          "metadata": {
+            "selected": true
+          },
+          "breadcrumb": []
+        }
+      ]
+    }
+  ]
 }
