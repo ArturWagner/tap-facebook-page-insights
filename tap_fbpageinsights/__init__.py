@@ -65,13 +65,13 @@ def get_metrics_from_schema(stream):
     # only flat metrics for now
     schema_dict = stream.schema.to_dict()
     metadata_dict = metadata.to_map(stream.metadata)
-   
+
     def is_metric(prop):
         return metadata.get(
             metadata_dict,
             ("properties", prop),
             "dimension") is not True and prop != "date"
-    
+
     metrics = [prop for prop in schema_dict['properties'] if is_metric(prop)]
     LOGGER.info('Getting Metrics')
     LOGGER.info(metrics)
@@ -92,30 +92,45 @@ def sync(config, state, catalog):
             string_metrics = ','.join(metrics)
             lines = fb_insights.get_page_insights(config, string_metrics)
             singer_lines = {}
+            line_date = ""
+
             try:
-                for line in lines['data']:
-                    metric_line = build_singer_line(line, metrics)
+                for metric in lines['data']:
+                    line_date = metric['values'][0]['end_time']
+                    metric_line = build_singer_line(metric, metrics)
 
                     with Transformer(
                         singer.UNIX_MILLISECONDS_INTEGER_DATETIME_PARSING
                     ) as bumble_bee:
-                    
+
                         singer_line = bumble_bee.transform(
                             metric_line, stream_schema.to_dict()
                         )
-                
+
                     singer_lines.update(singer_line)
-                
+
+
+                singer.write_schema(
+                    stream_id,
+                    stream_schema.to_dict(),
+                    "date",
+                    None,
+                    stream.stream_alias
+                )
+
+
+
                 today = datetime.now().date().isoformat()
+                singer_lines['date'] = line_date
                 singer_lines['date_extraction'] = today
                 singer.write_record(stream_id, singer_lines, stream_alias)
-            
+
             except KeyError:
                 if 'error' in lines:
                     LOGGER.info(lines['error'])
                 else:
                     LOGGER.info(lines)
-                
+
     return
 
 
@@ -123,7 +138,7 @@ def build_singer_line(line, metrics):
     singer_line = {}
     field_name = line['name']
     singer_line[field_name] = line['values'][0]['value']
-    
+
     return singer_line
 
 
