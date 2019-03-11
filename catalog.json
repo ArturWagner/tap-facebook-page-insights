@@ -11,6 +11,11 @@
           "object"
         ],
         "properties": {
+          "date": {
+            "type": [
+              "string"
+            ]
+          },
           "page_impressions": {
             "type": [
               "string"
