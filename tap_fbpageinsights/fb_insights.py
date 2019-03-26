@@ -7,7 +7,7 @@ def get_page_insights(config, metrics):
         'since': config['start_date'],
         'until': config['end_date'],
         'metric': metrics,
-        'period': 'day',
+        'period': 'days_28',
         'access_token': config['access_token']
     }
     insights = requests.get(
